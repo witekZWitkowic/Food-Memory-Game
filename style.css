@@ -24,10 +24,9 @@ body {
 .memory-game {
     width: 800px;
     height: 800px;
-    margin: 50px auto;
     display: flex;
     flex-wrap: wrap;
-    perspective: 1000px;
+    perspective: 10000px;
 }
 .memo-card {
     width: calc(25% - 10px);
@@ -44,6 +43,12 @@ body {
 }
 .memo-card.flip {
     transform: rotateY(180deg);
+    transition: 0.5s ease;
+}
+.memo-card.disabled {
+    transform: rotateY(180deg);
+    opacity: 0;
+    transition-duration: 1s;
 }
 .front-face, .back-face {
     width: 100%;
@@ -56,4 +61,83 @@ body {
 }
 .front-face {
     transform: rotateY(180deg);
+}
+.locked-cards {
+    opacity: 0.2;
+    transition: .5s;
+}
+.timerAndScore {
+    font-family: 'Grandstander', cursive;
+    margin-top: 100px;
+    font-size: 2.8rem;
+    font-weight: bold;
+    max-width: 490px;
+}
+.gameFlex {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+.score, .flipsCounter, .timer {
+    margin-top: 30px;
+    background-image: linear-gradient(90deg, rgba(77,177,236,1) 0%, rgba(150,150,255,1) 46%, rgba(0,255,214,1) 80%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+#startBtn, #restartBtn {
+    font-size: 2rem;
+    background-color: rgba(36, 127, 196, 0.4);
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    color: rgba(150,150,255,1);
+    transform: scale(1);
+    transition: transform .2s;
+    margin: 0 10px;
+}
+#startBtn:active, #restartBtn:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+.start-stop-btns {
+    border: 5px dotted rgba(150,150,255,0.6);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.time-score-counters {
+    display: flex;
+    margin: 10px auto;
+    padding: 20px;
+    flex-direction: column;
+    border: 5px dotted rgba(150,150,255,0.5);
+    border-radius: 10px;
+}
+.btnFlex {
+    display: flex;
+    justify-content: space-between;
+}
+.win {
+    position: absolute;
+    top: 0;
+    margin-top: -50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13.85rem;
+    z-index: 30;
+    background-image: linear-gradient(90deg, rgba(77,177,236,1) 0%, rgba(150,150,255,1) 46%, rgba(0,255,214,1) 80%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+.hidden {
+    visibility: hidden;
 }
