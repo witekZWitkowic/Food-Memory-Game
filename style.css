@@ -141,3 +141,16 @@ body {
 .hidden {
     visibility: hidden;
 }
+@media only screen and (max-width: 600px) {
+    body {
+        width: 1200px;
+    }
+    .gameFlex {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    h1 {
+        text-align: center;
+    }
+}
